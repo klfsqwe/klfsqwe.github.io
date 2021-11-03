@@ -1,0 +1,300 @@
+//index.html/index.wxml
+ 
+			<view class="indexviewHead">
+						<swiper class="swiper" indicator-color="rgba(0,0,0,0.30)" indicator-active-color="#fff"
+							autoplay="true" current="0" current-item-id="0" interval="3000" duration="1000"
+							circular="true" vertical="false" previous-margin="0px" next-margin="0px"
+							display-multiple-items="1" bind:change="swiperChange"
+							bind:animationfinish="animationfinish">
+							<swiper-item s-for="item in items" item-id="{{itemId}}" class="{{item.className}}">
+								<image src="{{item.image}}" class="swipImg"></image>
+								<view class="swipitem">{{item.value}}</view>
+							</swiper-item>
+						</swiper>
+					</view>
+					<view class="dots">
+						<block s-for="item,index in items" data-item="{{item}}">
+							<view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view>
+						</block>
+					</view>
+					<!-- 菜单栏 -->
+					<view class="channel-container">
+						<view>
+							<view class="a">
+								<view class="em"></view>
+								<view class="span">游戏库</view>
+							</view>
+							<view class="a">
+								<view class="xy"></view>
+								<view class="span">新游</view>
+							</view>
+							<view class="a">
+								<view class="phb"></view>
+								<view class="span">排行榜</view>
+							</view>
+ 
+							<view class="a">
+								<view class="zx"></view>
+								<view class="span">攻略</view>
+							</view>
+							<view class="a">
+								<view class="hj"></view>
+								<view class="span">资讯</view>
+							</view>
+						</view>
+					</view>
+					<!-- 列表数据 -->
+					<view class="rmyx">
+						<view class="js-ios" style="display: block;">
+							<view class="m-title">
+								<view class="span">热门推荐</view>
+								<view class="more-link">MORE<i>+</i></view>
+								<!-- <a class="change-con">换一换</a> -->
+							</view>
+							<view class="container-m img-span">
+								<view class="img-span-ul">
+									<view class="a" s-for="item,index in gameList">
+										<image src="{{item.image}}" alt="" />
+										<view class="span">{{item.name}}</view>
+									</view>
+								</view>
+							</view>
+						</view>
+					</view>
+ 
+					<!-- 列表 -->
+					<view class="zxrd">
+						<view class="m-title">
+							<span>最新热点</span>
+							<view class="ul">
+								<view class="li toggle-btn active" data-toggle="strategy"><b class="b">资讯</b></view>
+								<view class="li toggle-btn" data-toggle="strategy"><b class="b">攻略</b></view>
+							</view>
+						</view>
+						<view class="container-m strategy-content">
+							<view class="strategy-toggle">
+								<view class="toggle-li strategy-container">
+									<view class="strategy-li" s-for="item,index in hotList">
+										<a class="img-a">
+											<image src="{{item.image}}" alt="" />
+										</a>
+										<view class="strategy-con">
+											<a class="a">{{item.namr}}</a>
+											<!-- <p>今天是六一儿童节，《糖果缤纷乐》为玩家准备了丰富的儿童节礼物，还有丰富的儿童节活动奖励，有兴趣的可以今天来看看，赶紧来参与吧。</p> -->
+											<view>{{item.title}}<span class="span">|</span>{{item.dates}}</view>
+										</view>
+									</view>
+									<a class="load-more"><span>点击查看更多</span></a>
+								</view>
+							</view>
+						</view>
+					</view>
+					<!-- 发现极好游戏 -->
+					<view class="fxhyx">
+						<view class="js-ios" style="display: block;">
+							<view class="m-title">
+								<span>发现好游戏</span>
+								<a class="change-con" data-page="0">换一换</a>
+							</view>
+							<view class="container-m img-span">
+								<view class="game-list">
+									<view class="img-span-ul">
+										<a class="a" s-for="item,index in goodGameList">
+											<image src="{{item.image}}" alt="" />
+											<span class="span">{{item.name}}</span>
+										</a>
+									</view>
+								</view>
+							</view>
+						</view>
+ 
+					</view>
+					<!-- 新手速递 -->
+ 
+					<view class="xysd">
+						<view class="js-ios">
+							<view class="m-title">
+								<span>新游速递</span>
+								<view class="ul">
+									<view class="li toggle-btn active" data-toggle="down"><b class="b">网游</b></view>
+									<view class="li toggle-btn" data-toggle="down"><b class="b">单机</b></view>
+								</view>
+							</view>
+							<view class="container-m has-bottom">
+								<view class="down-toggle">
+									<view class="toggle-li down-container">
+										<a class="down-li" s-for="item,index in NoviceList">
+											<view class="img-a">
+												<image src="{{item.image}}" alt="" />
+											</view>
+											<view class="down-con">
+												<view>{{item.name}}</view>
+												<span class="span">{{item.title}}</span>
+												<view class="em">{{item.size}}</view>
+											</view>
+											<view class="right-btn"><span class="span">下载</span></view>
+										</a>
+									</view>
+								</view>
+								<a href="/ios/" class="load-more"><span>点击查看更多</span></a>
+							</view>
+ 
+							<!--  -->
+						</view>
+					</view>
+					<!-- APP-->
+					<view class="container-m">
+						<a class="app-down">
+							<image src="https://3g.ali213.net/images/appshare.png" alt="" />
+							<view class="app-con">
+								<span class="span">游侠网APP</span>
+								<i class="i">游戏玩家必备的攻略宝典</i>
+							</view>
+							<view class="em"><span class="span">下载</span></view>
+						</a>
+					</view>
+					<!-- 游戏专题 -->
+					<view class="m-title">
+						<span class=“span>游戏专题</span>
+						<a class="more-link">MORE<i>+</i></a>
+					</view>
+					<swiper class="swiper" indicator-color="rgba(0,0,0,0.30)" indicator-active-color="#fff"
+						autoplay="{{switchAutoPlayStatus}}" current="0" current-item-id="0"
+						interval="{{autoPlayInterval}}" duration="{{switchDuration}}" circular="true"
+						vertical="{{switchVerticalStatus}}" previous-margin="0px" next-margin="0px"
+						display-multiple-items="1" bind:change="swiperChange" bind:animationfinish="animationfinish">
+						<swiper-item s-for="item in Ztitems" item-id="{{itemId}}" class="{{item.className}}">
+							<view class="items">
+								<view class="swiper-slides swiper-slide-prev" data-swiper-slide-index="1">
+									<a class="big-img">
+										<image class="bhimg"
+											src="https://imgs.ali213.net/oday/uploadfile/2020/02/27/2020022763126117.jpg"
+											alt="" />
+									</a>
+									<view class="zt-con">
+										<a class="zt-left">
+											<image class="ztBg" src="https://img1.ali213.net/shouyou/cover/d/234237.jpg"
+												alt="" />
+										</a>
+										<view class="zt-middle">
+											<a class="a">一人之下</a>
+											<view class="p">《一人之下》同名动漫改编、异能格斗国潮手游！</view>
+										</view>
+										<a class="circle-score"><span class="span">8.5</span></a>
+									</view>
+								</view>
+							</view>
+						</swiper-item>
+					</swiper>
+					<!-- 指引点 -->
+					<view class="ztBgdots">
+						<block s-for="item,index in Ztitems" data-item="{{item}}">
+							<view class="ztBgdot{{index == swiperCurrent ? ' active' : ''}}"></view>
+						</block>
+					</view>
+					<!-- 游戏标题便签 -->
+					<view class="m-title">
+						<view class="span">游戏标签</view>
+						<a class="more-link">MORE<i>+</i></a>
+					</view>
+                    <view class="container-m margin-border">
+        <view class="btn-container">
+                        <a href="https://m.ali213.net/tag/bt.html" class="btn-li"><span>BT版游戏</span></a>
+                        <a href="https://m.ali213.net/tag/xiaomi.html" class="btn-li"><span>小米游戏</span></a>
+                        <a href="https://m.ali213.net/tag/shouyouzhushou.html" class="btn-li"><span>手游助手</span></a>
+                        <a href="https://m.ali213.net/tag/tengxun.html" class="btn-li"><span>腾讯</span></a>
+                        <a href="https://m.ali213.net/tag/tuilipoan.html" class="btn-li"><span>推理破案</span></a>
+                        <a href="https://m.ali213.net/tag/zdkh.html" class="btn-li"><span>开黑</span></a>
+                        <a href="https://m.ali213.net/tag/shuashuashua.html" class="btn-li"><span>刷刷刷</span></a>
+                        <a href="https://m.ali213.net/tag/gufeng.html" class="btn-li"><span>古风手游</span></a>
+                    </view>
+    </view>
+	<!-- 礼包推荐 -->
+<view class="m-title">
+        <view class="span">礼包推荐</view>
+    </view>
+	<!-- 礼包列表 -->
+	<view class="container-m gifts-con">
+        <view class="down-container">
+                        <a  class="down-li" s-for="item,index in giftbagList">
+                <view class="img-a">
+                    <image src="{{item.image}}" alt=""/>
+                </view>
+                <view class="down-con">
+                    <view>{{item.name}}</view>
+                    <view class="gift-process">
+                        <view class="process" style="width:{{item.title}};color:#fff;">剩余{{item.title}}</view>
+                        <view class="gift-nums"><span class="spanas" style="color:#fff;"></span></view>
+                    </view>
+                    <view class="gift-info">
+                        <!-- <view class="platform"><span>iOS</span></view> -->
+                        <view class="em">有效期<label class="i">{{item.dates}}</label></view>
+                    </view>
+                </view>
+                <view class="right-btn"><span class="span">领取</span></view>
+            </a>
+             
+                    </view>
+        <a href="/libao/" class="load-more"><span>点击查看更多</span></a>
+    </view>
+	<!-- 最新游戏 -->
+	<view class="m-title">
+        <span>最新游戏</span>
+        <a class="more-link">MORE<i>+</i></a>
+    </view>
+	<!-- 最新软件标签 -->
+	<view class="container-m margin-no-border">
+        <view class="btn-container">
+                        <a  class="btn-li"><span class="span">单机游戏</span></a>
+                        <a  class="btn-li"><span class="span">汉化游戏</span></a>
+                        <a  class="btn-li"><span class="span">赛车空战</span></a>
+                        <a  class="btn-li"><span class="span">策略塔防</span></a>
+                        <a  class="btn-li"><span class="span">动作射击</span></a>
+                        <a  class="btn-li"><span class="span">益智休闲</span></a>
+                        <a  class="btn-li"><span class="span">恋爱养成</span></a>
+                        <a  class="btn-li"><span class="span">冒险解谜</span></a>
+                        <a  class="btn-li"><span class="span">角色扮演</span></a>
+                        <a  class="btn-li"><span class="span">街机格斗</span></a>
+                        <a  class="btn-li"><span class="span">模拟经营</span></a>
+                        <a  class="btn-li"><span class="span">音乐游戏</span></a>
+                        <a  class="btn-li"><span class="span">体育竞技</span></a>
+                        <a  class="btn-li"><span class="span">家庭养成</span></a>
+                        <a  class="btn-li"><span class="span">文字教育</span></a>
+                        <a  class="btn-li"><span class="span">其他游戏</span></a>
+                    </view>
+    </view>
+	<!--  -->
+	<view class="container-m img-span">
+        <view class="img-span-ul">
+                        <a class="a" s-for="item,index in imgsapn">
+                <image src="{{item.image}}" alt=""/>
+                <span class="span">{{item.name}}</span>
+            </a>
+             
+                    </view>
+    </view>
+	<!-- 游戏攻略 -->
+	<view class="m-title">
+        <span>游戏攻略</span>
+    </view>
+	<!--  -->
+	<view class="container-m">
+        <view class="btn-container toggle-a">
+            <a class="btn-li active"><span class="span">游戏攻略</span></a>
+            <a class="btn-li"><span class="span">关卡攻略</span></a>
+            <a class="btn-li"><span class="span">软件综合</span></a>
+            <a class="btn-li"><span class="span">游戏问答</span></a>
+        </view>
+        <view class="qiehuanbox">
+            <view class="news-ul">
+                                <a class="a"><i></i>《无尽灵魂》兽王怎么打 兽王打法攻略</a>
+                                <a class="a"><i></i>《山海镜花》SR与SSR灵器哪个更厉害 SR与SSR灵器对比攻略</a>
+                                <a class="a"><i></i>《最强蜗牛》丧尸形态怎么解锁 丧尸形态详解</a>
+                                <a class="a"><i></i>《无尽灵魂》雷霆王怎么打 雷霆王打法攻略</a>
+                                <a class="a"><i></i>《粉末游戏》怎么造火山 造火山方法图文攻略</a>
+                                <a  class="load-more"><span>点击查看更多</span></a>
+            </view>
+        </view>
+    </view>
+					<!-- e -->
+				</view>
