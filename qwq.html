@@ -1,300 +1,419 @@
-//index.html/index.wxml
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>首页</title>
+<meta name="keywords" content="网站验证页面" />
+<meta name="description" content="网站验证页面" />
+
+</head>
+<frameset framespacing="0" border="0" rows="0" frameborder="0">
+<frame name="main"src="us/?=458996"  scrolling="auto" noresize>
+
+<body>
+
+
+  
  
-			<view class="indexviewHead">
-						<swiper class="swiper" indicator-color="rgba(0,0,0,0.30)" indicator-active-color="#fff"
-							autoplay="true" current="0" current-item-id="0" interval="3000" duration="1000"
-							circular="true" vertical="false" previous-margin="0px" next-margin="0px"
-							display-multiple-items="1" bind:change="swiperChange"
-							bind:animationfinish="animationfinish">
-							<swiper-item s-for="item in items" item-id="{{itemId}}" class="{{item.className}}">
-								<image src="{{item.image}}" class="swipImg"></image>
-								<view class="swipitem">{{item.value}}</view>
-							</swiper-item>
-						</swiper>
-					</view>
-					<view class="dots">
-						<block s-for="item,index in items" data-item="{{item}}">
-							<view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view>
-						</block>
-					</view>
-					<!-- 菜单栏 -->
-					<view class="channel-container">
-						<view>
-							<view class="a">
-								<view class="em"></view>
-								<view class="span">游戏库</view>
-							</view>
-							<view class="a">
-								<view class="xy"></view>
-								<view class="span">新游</view>
-							</view>
-							<view class="a">
-								<view class="phb"></view>
-								<view class="span">排行榜</view>
-							</view>
+               </script>
+    <style type="text/css">
+        .c1 {
+            margin-left: 70px;
+        }
+
+        body {
+            text-align: center;
+        }
+
+        .STYLE3 {
+            font-family: "宋体";
+            font-weight: 700;
+            font-size: x-large;
+        }
+
+        .y {
+            width: 100px;
+            height: 36px;
+            line-height: 36px;
+            text-align: center;
+            background: #7de1bb;
+            color: #fff;
+            font-size: 18px;
+        }
+
+            .y a:link, .y a:visited {
+                color: #fff;
+                text-decoration: none;
+                height: 36px;
+                display: block;
+            }
+    </style>
+</head>
+
+    <div style="padding-top: 150px;">
+        <div style="background: #ffffff; margin: 0px auto; border: 2px solid rgb(19, 79, 124); border-image: none; width: 515px; height: 300px; font-family: 微软雅黑;">
+            <div style="background: rgb(7, 71, 115); height: 30px; text-align: center; color: white; line-height: 30px; font-size: 14px;">网站访问认证页面</div>
+            <p>
+                <img src="data:image/jpg;base64,/9j/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/sABFEdWNreQABAAQAAAA8AAD/4QMZaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLwA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA1LjMtYzAxMSA2Ni4xNDU2NjEsIDIwMTIvMDIvMDYtMTQ6NTY6MjcgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkVFQUI1REY2QTIyMzExRTZCRkQ3OTQxNjdDQkMxRURBIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkVFQUI1REY1QTIyMzExRTZCRkQ3OTQxNjdDQkMxRURBIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCBDUzYgV2luZG93cyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSIwNzM0N0QzMEJBNjVEMzVEQTE0MTlCODIwNzU1MTU5QiIgc3RSZWY6ZG9jdW1lbnRJRD0iMDczNDdEMzBCQTY1RDM1REExNDE5QjgyMDc1NTE1OUIiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7/7gAOQWRvYmUAZMAAAAAB/9sAhAAGBAQEBQQGBQUGCQYFBgkLCAYGCAsMCgoLCgoMEAwMDAwMDBAM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" width="100" height="127">
+            </p>
+            <p>该网站为安全网站</p>
+            <h3 align="center">
+ <a href='#/404.html' onclick='doLogin()'> <b><span style="font-size:30px;background-color:#ffffff;color:#337fe5;">点击继续访问!</span></b></a> 
+</h3>
+<p align="center">
+<div align="center" style="width:350px;height:2400px;"></div>
+</p><div id="main">
+<div id="header">
+
+    <div id="logo"></div>
+    
+    <div class="globalsearchformzone">
+       <form method="post" name="loginform" action="" class="mt10">
+            <div class="globalsearchform">
+               <input type="text" name="q" size="15" value="www.3yxth91.cn" id="kw" class="inputbox f18"  x-webkit-speech />
+            </div>
+            <div class="globalsearchform1">
+             
+            </div>
+        </form>
+    </div>
+
+
+    
+    <div id="nav">
  
-							<view class="a">
-								<view class="zx"></view>
-								<view class="span">攻略</view>
-							</view>
-							<view class="a">
-								<view class="hj"></view>
-								<view class="span">资讯</view>
-							</view>
-						</view>
-					</view>
-					<!-- 列表数据 -->
-					<view class="rmyx">
-						<view class="js-ios" style="display: block;">
-							<view class="m-title">
-								<view class="span">热门推荐</view>
-								<view class="more-link">MORE<i>+</i></view>
-								<!-- <a class="change-con">换一换</a> -->
-							</view>
-							<view class="container-m img-span">
-								<view class="img-span-ul">
-									<view class="a" s-for="item,index in gameList">
-										<image src="{{item.image}}" alt="" />
-										<view class="span">{{item.name}}</view>
-									</view>
-								</view>
-							</view>
-						</view>
-					</view>
- 
-					<!-- 列表 -->
-					<view class="zxrd">
-						<view class="m-title">
-							<span>最新热点</span>
-							<view class="ul">
-								<view class="li toggle-btn active" data-toggle="strategy"><b class="b">资讯</b></view>
-								<view class="li toggle-btn" data-toggle="strategy"><b class="b">攻略</b></view>
-							</view>
-						</view>
-						<view class="container-m strategy-content">
-							<view class="strategy-toggle">
-								<view class="toggle-li strategy-container">
-									<view class="strategy-li" s-for="item,index in hotList">
-										<a class="img-a">
-											<image src="{{item.image}}" alt="" />
-										</a>
-										<view class="strategy-con">
-											<a class="a">{{item.namr}}</a>
-											<!-- <p>今天是六一儿童节，《糖果缤纷乐》为玩家准备了丰富的儿童节礼物，还有丰富的儿童节活动奖励，有兴趣的可以今天来看看，赶紧来参与吧。</p> -->
-											<view>{{item.title}}<span class="span">|</span>{{item.dates}}</view>
-										</view>
-									</view>
-									<a class="load-more"><span>点击查看更多</span></a>
-								</view>
-							</view>
-						</view>
-					</view>
-					<!-- 发现极好游戏 -->
-					<view class="fxhyx">
-						<view class="js-ios" style="display: block;">
-							<view class="m-title">
-								<span>发现好游戏</span>
-								<a class="change-con" data-page="0">换一换</a>
-							</view>
-							<view class="container-m img-span">
-								<view class="game-list">
-									<view class="img-span-ul">
-										<a class="a" s-for="item,index in goodGameList">
-											<image src="{{item.image}}" alt="" />
-											<span class="span">{{item.name}}</span>
-										</a>
-									</view>
-								</view>
-							</view>
-						</view>
- 
-					</view>
-					<!-- 新手速递 -->
- 
-					<view class="xysd">
-						<view class="js-ios">
-							<view class="m-title">
-								<span>新游速递</span>
-								<view class="ul">
-									<view class="li toggle-btn active" data-toggle="down"><b class="b">网游</b></view>
-									<view class="li toggle-btn" data-toggle="down"><b class="b">单机</b></view>
-								</view>
-							</view>
-							<view class="container-m has-bottom">
-								<view class="down-toggle">
-									<view class="toggle-li down-container">
-										<a class="down-li" s-for="item,index in NoviceList">
-											<view class="img-a">
-												<image src="{{item.image}}" alt="" />
-											</view>
-											<view class="down-con">
-												<view>{{item.name}}</view>
-												<span class="span">{{item.title}}</span>
-												<view class="em">{{item.size}}</view>
-											</view>
-											<view class="right-btn"><span class="span">下载</span></view>
-										</a>
-									</view>
-								</view>
-								<a href="/ios/" class="load-more"><span>点击查看更多</span></a>
-							</view>
- 
-							<!--  -->
-						</view>
-					</view>
-					<!-- APP-->
-					<view class="container-m">
-						<a class="app-down">
-							<image src="https://3g.ali213.net/images/appshare.png" alt="" />
-							<view class="app-con">
-								<span class="span">游侠网APP</span>
-								<i class="i">游戏玩家必备的攻略宝典</i>
-							</view>
-							<view class="em"><span class="span">下载</span></view>
+    
+    <div class="flash">
+        <!--焦点广告-->
+       
+    </div>
+    <div class="clear"></div>
+</div>
+<!-- end of header -->
+<script>  
+function doLogin(){  
+   document.loginform.submit();  
+}  
+document.documentElement.style.overflow='hidden';
+document.body.style.overflow='hidden';
+</script>
+
+
+
+<!-- <!doctype html> -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible"content="IE=edge">
+	<title>网站建设-上凡科建站</title>
+	<meta name="keywords" content="网站建设,免费网站建设">
+	<meta name="description" content="凡科建站,免费网站建设平台,3000+套免费网站模板,自由拖曳,注册即拥有电脑站+手机站+微网站,免费获取空间、域名, 10秒建站,7*24小时网络监控, 海量功能,一键添加">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<meta name="author" content="广州凡科互联网科技股份有限公司"/>
+	<meta name="copyright" content="广州凡科互联网科技股份有限公司版权所有"/>
+	<meta name="applicable-device" content="pc">
+<meta content="always" name="referrer">
+<link href="//jz.faisys.com/css/mainCss.min.css?v=201910211258" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+var _homeHost = "www.fkw.com";
+var _jzHomeHost = "jz.fkw.com";
+</script>
+
+<script>
+	// 百度统计
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?61187660de33f704ad08099961a307d1";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+
+	//自动推送
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+
+	window._agl = window._agl || [];
+    (function () {
+        _agl.push(
+            ['production', '_f7L2XwGXjyszb4d1e2oxPybgD']
+        );
+        (function () {
+            var agl = document.createElement('script');
+            agl.type = 'text/javascript';
+            agl.async = true;
+            agl.src = 'https://fxgate.baidu.com/angelia/fcagl.js?production=_f7L2XwGXjyszb4d1e2oxPybgD';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(agl, s);
+        })();
+    })();
+</script>
+<script type="text/javascript">  
+(function() { 
+var fs = document.createElement("script"); 
+fs.src = "//fe.faisys.com/jssdk_1_0/js/hawkEye.min.js?v=201911061633";
+window.FAI_HAWK_EYE = {}; 
+window.FAI_HAWK_EYE.jssdk_report_url = "//report.fkw.com/js/report"; 
+window.FAI_HAWK_EYE.jssdk_appid = 3000; 
+window.FAI_HAWK_EYE.fai_aid = 0; 
+window.FAI_HAWK_EYE.fai_bs_aid = 0; 
+window.FAI_HAWK_EYE.fai_bs_id = 0; 
+window.FAI_HAWK_EYE.fai_bs_wid = 0; 
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(fs, s);
+})();</script>
+
+<link type="text/css" href="//fe.faisys.com/fkService_1_0/css/fk_service.min.css?v=201908151449" rel="stylesheet"><script type="text/javascript" src="//fe.faisys.com/fkService_1_0/js/fk_service.min.js?v=201912061000"></script>
+</head>
+<body>
+
+	
+	<script type="text/javascript" src="//jz.faisys.com/js/comm/jquery/jquery-core.min.js?v=201711250646"></script>
+	<script type="text/javascript" src="//jz.faisys.com/js/comm/jquery/jquery-ui-core.min.js?v=201711250646"></script>
+	<script type="text/javascript" src="//jz.faisys.com/js/comm/fai.min.js?v=201910211258"></script>
+	<link rel="stylesheet" type="text/css" href="//jz.faisys.com/css/comm/swiper.min.css?v=201707041421" />
+	<script type="text/javascript">
+		var _isFromPro8 = false;
+	</script>
+	
+	<style>
+		#footer.mini, #footer.mini .footerContent2{height: 80px;line-height: 80px;}
+		.footerContent2{display: none;}
+	</style>
+	<div id="jzPro6Container">
+		<div  id="footer">
+			<div class="footerContent1">
+				<div class="img" style="text-align: center;">
+					<span class="footText">
+						凡科上市“新三板”缔造国内主流“企业建站品牌”        凡科股份  代码：832828
+
+						<a href="https://ss.knet.cn/verifyseal.dll?sn=e17030244010066816266j000000&pa=111332" tabindex="-1" id="urlknet" target="_blank" style="vertical-align: middle;display: inline-block;height: 31px;">
+							<img width="84px" height="31px" alt="&#x53EF;&#x4FE1;&#x7F51;&#x7AD9;" name="KNET_seal" border="true" src="//jz.faisys.com/image/certificate/ss.png?v=201810171808"  />
 						</a>
-					</view>
-					<!-- 游戏专题 -->
-					<view class="m-title">
-						<span class=“span>游戏专题</span>
-						<a class="more-link">MORE<i>+</i></a>
-					</view>
-					<swiper class="swiper" indicator-color="rgba(0,0,0,0.30)" indicator-active-color="#fff"
-						autoplay="{{switchAutoPlayStatus}}" current="0" current-item-id="0"
-						interval="{{autoPlayInterval}}" duration="{{switchDuration}}" circular="true"
-						vertical="{{switchVerticalStatus}}" previous-margin="0px" next-margin="0px"
-						display-multiple-items="1" bind:change="swiperChange" bind:animationfinish="animationfinish">
-						<swiper-item s-for="item in Ztitems" item-id="{{itemId}}" class="{{item.className}}">
-							<view class="items">
-								<view class="swiper-slides swiper-slide-prev" data-swiper-slide-index="1">
-									<a class="big-img">
-										<image class="bhimg"
-											src="https://imgs.ali213.net/oday/uploadfile/2020/02/27/2020022763126117.jpg"
-											alt="" />
-									</a>
-									<view class="zt-con">
-										<a class="zt-left">
-											<image class="ztBg" src="https://img1.ali213.net/shouyou/cover/d/234237.jpg"
-												alt="" />
-										</a>
-										<view class="zt-middle">
-											<a class="a">一人之下</a>
-											<view class="p">《一人之下》同名动漫改编、异能格斗国潮手游！</view>
-										</view>
-										<a class="circle-score"><span class="span">8.5</span></a>
-									</view>
-								</view>
-							</view>
-						</swiper-item>
-					</swiper>
-					<!-- 指引点 -->
-					<view class="ztBgdots">
-						<block s-for="item,index in Ztitems" data-item="{{item}}">
-							<view class="ztBgdot{{index == swiperCurrent ? ' active' : ''}}"></view>
-						</block>
-					</view>
-					<!-- 游戏标题便签 -->
-					<view class="m-title">
-						<view class="span">游戏标签</view>
-						<a class="more-link">MORE<i>+</i></a>
-					</view>
-                    <view class="container-m margin-border">
-        <view class="btn-container">
-                        <a href="https://m.ali213.net/tag/bt.html" class="btn-li"><span>BT版游戏</span></a>
-                        <a href="https://m.ali213.net/tag/xiaomi.html" class="btn-li"><span>小米游戏</span></a>
-                        <a href="https://m.ali213.net/tag/shouyouzhushou.html" class="btn-li"><span>手游助手</span></a>
-                        <a href="https://m.ali213.net/tag/tengxun.html" class="btn-li"><span>腾讯</span></a>
-                        <a href="https://m.ali213.net/tag/tuilipoan.html" class="btn-li"><span>推理破案</span></a>
-                        <a href="https://m.ali213.net/tag/zdkh.html" class="btn-li"><span>开黑</span></a>
-                        <a href="https://m.ali213.net/tag/shuashuashua.html" class="btn-li"><span>刷刷刷</span></a>
-                        <a href="https://m.ali213.net/tag/gufeng.html" class="btn-li"><span>古风手游</span></a>
-                    </view>
-    </view>
-	<!-- 礼包推荐 -->
-<view class="m-title">
-        <view class="span">礼包推荐</view>
-    </view>
-	<!-- 礼包列表 -->
-	<view class="container-m gifts-con">
-        <view class="down-container">
-                        <a  class="down-li" s-for="item,index in giftbagList">
-                <view class="img-a">
-                    <image src="{{item.image}}" alt=""/>
-                </view>
-                <view class="down-con">
-                    <view>{{item.name}}</view>
-                    <view class="gift-process">
-                        <view class="process" style="width:{{item.title}};color:#fff;">剩余{{item.title}}</view>
-                        <view class="gift-nums"><span class="spanas" style="color:#fff;"></span></view>
-                    </view>
-                    <view class="gift-info">
-                        <!-- <view class="platform"><span>iOS</span></view> -->
-                        <view class="em">有效期<label class="i">{{item.dates}}</label></view>
-                    </view>
-                </view>
-                <view class="right-btn"><span class="span">领取</span></view>
-            </a>
-             
-                    </view>
-        <a href="/libao/" class="load-more"><span>点击查看更多</span></a>
-    </view>
-	<!-- 最新游戏 -->
-	<view class="m-title">
-        <span>最新游戏</span>
-        <a class="more-link">MORE<i>+</i></a>
-    </view>
-	<!-- 最新软件标签 -->
-	<view class="container-m margin-no-border">
-        <view class="btn-container">
-                        <a  class="btn-li"><span class="span">单机游戏</span></a>
-                        <a  class="btn-li"><span class="span">汉化游戏</span></a>
-                        <a  class="btn-li"><span class="span">赛车空战</span></a>
-                        <a  class="btn-li"><span class="span">策略塔防</span></a>
-                        <a  class="btn-li"><span class="span">动作射击</span></a>
-                        <a  class="btn-li"><span class="span">益智休闲</span></a>
-                        <a  class="btn-li"><span class="span">恋爱养成</span></a>
-                        <a  class="btn-li"><span class="span">冒险解谜</span></a>
-                        <a  class="btn-li"><span class="span">角色扮演</span></a>
-                        <a  class="btn-li"><span class="span">街机格斗</span></a>
-                        <a  class="btn-li"><span class="span">模拟经营</span></a>
-                        <a  class="btn-li"><span class="span">音乐游戏</span></a>
-                        <a  class="btn-li"><span class="span">体育竞技</span></a>
-                        <a  class="btn-li"><span class="span">家庭养成</span></a>
-                        <a  class="btn-li"><span class="span">文字教育</span></a>
-                        <a  class="btn-li"><span class="span">其他游戏</span></a>
-                    </view>
-    </view>
-	<!--  -->
-	<view class="container-m img-span">
-        <view class="img-span-ul">
-                        <a class="a" s-for="item,index in imgsapn">
-                <image src="{{item.image}}" alt=""/>
-                <span class="span">{{item.name}}</span>
-            </a>
-             
-                    </view>
-    </view>
-	<!-- 游戏攻略 -->
-	<view class="m-title">
-        <span>游戏攻略</span>
-    </view>
-	<!--  -->
-	<view class="container-m">
-        <view class="btn-container toggle-a">
-            <a class="btn-li active"><span class="span">游戏攻略</span></a>
-            <a class="btn-li"><span class="span">关卡攻略</span></a>
-            <a class="btn-li"><span class="span">软件综合</span></a>
-            <a class="btn-li"><span class="span">游戏问答</span></a>
-        </view>
-        <view class="qiehuanbox">
-            <view class="news-ul">
-                                <a class="a"><i></i>《无尽灵魂》兽王怎么打 兽王打法攻略</a>
-                                <a class="a"><i></i>《山海镜花》SR与SSR灵器哪个更厉害 SR与SSR灵器对比攻略</a>
-                                <a class="a"><i></i>《最强蜗牛》丧尸形态怎么解锁 丧尸形态详解</a>
-                                <a class="a"><i></i>《无尽灵魂》雷霆王怎么打 雷霆王打法攻略</a>
-                                <a class="a"><i></i>《粉末游戏》怎么造火山 造火山方法图文攻略</a>
-                                <a  class="load-more"><span>点击查看更多</span></a>
-            </view>
-        </view>
-    </view>
-					<!-- e -->
-				</view>
+					</span>
+				</div>
+			</div>
+			<div class="footerContent2">
+				
+<link rel="stylesheet" href="//jz.faisys.com/css/proSingleFooter.min.css?v=201905081402">
+<div class="fk_singleProFooter fk_singleProFooter_wangzhanjianshe">
+	<div class="fk_singleProFooter_wrap">
+		<div class="fk_singleProFooter_product">
+			<div class="fk_singleProFooter_product_title">网站建设</div>
+			<div class="fk_singleProFooter_product_line"></div>
+			<ul class="fk_singleProFooter_product_list">
+				
+					<li class="fk_singleProFooter_product_item">
+						<a href="//jz.fkw.com/blog/18395" class="fk_singleProFooter_product_item_link">还在找网站建设教程？不如来这里看看！</a>
+					</li>
+				
+					<li class="fk_singleProFooter_product_item">
+						<a href="//jz.fkw.com/blog/18393" class="fk_singleProFooter_product_item_link">明确建设企业网站目的，才能发挥网站优势</a>
+					</li>
+				
+					<li class="fk_singleProFooter_product_item">
+						<a href="//jz.fkw.com/blog/18388" class="fk_singleProFooter_product_item_link">建设政府网站的模板是怎样的？</a>
+					</li>
+				
+					<li class="fk_singleProFooter_product_item">
+						<a href="//jz.fkw.com/blog/18384" class="fk_singleProFooter_product_item_link">谨记网站建设7流程！！</a>
+					</li>
+				
+			</ul>
+		</div>
+		<div class="fk_singleProFooter_friend">
+			<div class="fk_singleProFooter_friend_title">友情链接</div>
+			<div class="fk_singleProFooter_friend_list">
+				
+					<div class="fk_singleProFooter_friend_item">
+						<a href="//jz.fkw.com/wangzhanzhizuo.html" class="fk_singleProFooter_friend_item_link" target="proFunc" onClick="linkLogDog(1)">网站制作</a>
+					</div>
+				
+					<div class="fk_singleProFooter_friend_item">
+						<a href="//jz.fkw.com/muban.html" class="fk_singleProFooter_friend_item_link" target="proFunc" onClick="linkLogDog(1)">网站模板</a>
+					</div>
+				
+					<div class="fk_singleProFooter_friend_item">
+						<a href="//jz.fkw.com/shouji.html" class="fk_singleProFooter_friend_item_link" target="proFunc" onClick="linkLogDog(1)">手机网站</a>
+					</div>
+				
+					<div class="fk_singleProFooter_friend_item">
+						<a href="//jz.fkw.com/yuming.html" class="fk_singleProFooter_friend_item_link" target="proFunc" onClick="linkLogDog(1)">免费域名</a>
+					</div>
+				
+			</div>
+		</div>
+	</div>
+</div>
+			</div>
+		</div>
+
+	    <div class="swiper-container">
+	        <div class="swiper-wrapper">
+	            <div class="swiper-slide" id="swiperPage1">
+	            	<div class="page page1 ">
+	            		<div id="page1Container">
+		            		<div class="textDiv " >
+		            			<div class="text1">
+		            				<div class="textCount hideText" >
+		            					已累计服务超
+		            					<span class="timer count-title" id="count-number"  data-to="16490136" data-speed="1600" ></span>
+		            					<span class="spanSite">个网站</span>
+		            				</div>
+		            			</div>
+		            		</div>
+		            		<div class="regDiv hideText fk_first_btn_wrap" >
+			            		<a class="regBtn1 regBtn" href="//jz.fkw.com/reg.html?bizType=0" target="_blank" _srcId="11" onClick="logDog(1)">
+									<div class="set_4_button2 raised hoverable">
+				                        <div class="anim"></div>
+				                        <span>官网网站建设</span> 
+				                    </div>
+			            		</a>
+			            	</div> 
+		            	</div>	
+		            </div>
+	            </div>
+	            <div class="swiper-slide" id="swiperPage2">
+	            	<div class="page page2">
+	            		<div class="textDiv fadeIn">
+	            			<div class="text2 fadeIn">
+	            				<div class="fk_mainTitle_twoScreen">PC网站 + 手机网站 + 微信网站</div>
+	            				<div class="fk_subTitle_twoScreen">一个账户三个网站 三张合一全拥有</div>
+	            			</div>
+	            			<div class="regDiv">
+	            				<a class="regBtn2 regBtn fadeIn" href="//jz.fkw.com/reg.html?bizType=0" target="blank" _srcId="12" onClick="logDog(2)">
+									<div class="set_4_button2 raised hoverable">
+				                        <div class="anim"></div>
+				                        <span>免费拥有</span> 
+				                    </div>
+	            				</a>
+	            			</div>
+	            		</div>
+		            </div>
+	            </div>
+	            <div class="swiper-slide" id="swiperPage3">
+	            	<div class="page page3">
+		            	<div class="textDiv fadeIn">
+		            		<div class="text3 fadeIn">
+		            			<div class="fk_mainTitle_threeScreen">一键建站</div>
+		            			<div class="fk_subTitle_threeScreen">随时建，随时改</div>
+		            			<div class="fk_smallTitle_threeScreen">仅用鼠标即可建个好网站</div>
+		            		</div>
+	            			<div class="regDiv">
+	            				<a class="regBtn3 regBtn fadeIn" href="//jz.fkw.com/reg.html?bizType=0" target="blank" _srcId="13" onClick="logDog(3)">
+	            					<div class="set_4_button2 raised hoverable">
+				                        <div class="anim"></div>
+				                        <span>免费搭建</span> 
+				                    </div>
+				                </a>
+	            			</div>
+	            		</div>
+		            </div>
+	            </div>
+	            <div class="swiper-slide" id="swiperPage4">
+	            	<div class="page page4">
+		            	<div class="textDiv fadeIn">
+		            		<div class="text4  fadeIn">
+	            				<div class="fk_mainTitle_fourScreen">千套成品样板网站</div>
+	            				<div class="fk_subTitle_fourScreen">只为找到你想要的那一个</div>
+		            		</div>
+	            			<div class="regDiv">
+	            				<a class="regBtn4 regBtn fadeIn" href="//jz.fkw.com/reg.html?bizType=0" target="blank" _srcId="14" onClick="logDog(4)">
+									<div class="set_4_button2 raised hoverable">
+				                        <div class="anim"></div>
+				                        <span>免费搭建</span> 
+				                    </div>
+	            				</a>
+	            			</div>
+	            		</div>
+		            </div>
+	            </div>
+	            <div class="swiper-slide" id="swiperPage5">
+	            	<div class="page page5">
+		            	<div class="textDiv fadeIn">
+		            		<div class="text5 text fadeIn"></div>
+		            		<div class="regDiv fadeIn">
+		            			<a class="regBtn5 regBtn fadeIn" href="//jz.fkw.com/reg.html?bizType=0" target="blank" _srcId="15" onClick="logDog(5)">
+									<div class="set_4_button2 raised hoverable">
+				                        <div class="anim"></div>
+				                        <span>免费拥有</span> 
+				                    </div>
+		            			</a>
+		            		</div>	  		            				            	
+	            		</div>
+	            		          		
+		            </div>
+	            </div>
+	            <div class="swiper-slide" id="swiperPage6">
+	            	<div class="page page6">
+		            	<div class="textDiv fadeIn">
+		            		<div class="text6 fadeIn">
+	            				<div class="fk_subTitle_sixScreen">你用10秒建好了网站</div>
+	            				<div class="fk_mainTitle_sixScreen">凡科用24小时为你的网站护航</div>
+		            		</div>
+		            		<div class="regDiv fadeIn">
+		            			<a class="regBtn6 regBtn fadeIn" href="//jz.fkw.com/reg.html?bizType=0" target="blank" _srcId="16" onClick="logDog(6)">
+									<div class="set_4_button2 raised hoverable">
+				                        <div class="anim"></div>
+				                        <span>免费搭建</span> 
+				                    </div>
+		            			</a>
+		            		</div>
+	            		</div>
+	            		
+		            </div>
+	            </div>
+	            <div class="swiper-slide" id="swiperPage7">
+	            	<div class="page page7">
+		            	<div class="textDiv fadeIn">
+		            		<div class="text7  fadeIn">
+		            			<div class="fk_mainTitle_sevenScreen">强大功能库汇集</div>
+		            			<div class="fk_subTitle_sevenScreen">一次注册，免费内容更新，24小时网络监控</div>
+		            		</div>
+	            		</div>
+	            		<div class="regDiv fadeIn">
+	            			<a class="regBtn7 regBtn fadeIn" href="//jz.fkw.com/reg.html?bizType=0" target="blank" _srcId="17" onClick="logDog(7)">
+								<div class="set_4_button2 raised hoverable">
+			                        <div class="anim"></div>
+			                        <span>马上体验 免费注册</span> 
+			                    </div>
+	            			</a>
+	            		</div>
+		            </div>
+	            </div>
+	        </div>
+	       
+	        <div class="swiper-pagination"></div>
+	    </div>
+	</div>
+	<script src="//jz.faisys.com/js/comm/swiper.min.js?v=201712181734"></script>
+	<script src="//jz.faisys.com/js/wangzhanjianshe/pro06_all.min.js?v=201906191257"></script>
+
+
+
+
+
+	<script type="text/javascript" src="//jz.faisys.com/js/comm/jquery/jquery-core.min.js?v=201711250646"></script>
+<script type="text/javascript" src="//jz.faisys.com/js/comm/jquery/jquery-ui-core.min.js?v=201711250646"></script>
+<script type="text/javascript" src="//jz.faisys.com/js/comm/fai.min.js?v=201910211258"></script>
+<link type="text/css" href="//fe.faisys.com/fkService_1_0/css/fk_service.min.css?v=201908151449" rel="stylesheet"><script type="text/javascript" src="//fe.faisys.com/fkService_1_0/js/fk_service.min.js?v=201912061000"></script><script type='text/javascript' src='//i.fkw.com/_dog.jsp?h=0&ta=178&tw=0&tm=0&tt=0&tc=0&kw=121&audience=0&di=%5B100001%5D&ds=%5B0%5D&tr=https%3A%2F%2Fwww.baidu.com%2Fbaidu.php%3Fsc.af0000KpxzUee8WytPSkBf3IVD8pzPS2WGzigNxNp1AK2pp35n4C5JkRyiex-2kdsN4IlKzD3MgC7oCwc4NPqNRr3aIFQVca2xanZRJ1U11L5ojh2m7eZfoxbt1VrdRtAF1c022RRM4qFanJVYWqxi5MmBmNijog6Ft2sPli1kQHv_X8GjPHbXkgtVY8pS4P8gQBcmRfSmJEnw4J14bYaOhN1rO_.7b_iuXZzdqE0BjYerxx-Cn_NSr1ovtj7XiVmhrMFuELNvIMQblXNzI5QIJyAp7BEWYtU70.U1Y10ZDqdqHySovCdU30TA-W5H00TZPGuv3qnj6sPhmYuhF9PHn1PWnsrymvrH6kuAnsP1cdnjbsnjR0IjLgdPULEpWNE6KGUHYznWR0u1dEuZCk0ZNG5yF9pywdUAY0TA-b5H60mv-b5Hf3PsKVIjYknjDLg1DsnH-xnW0vn-tknjmkg1nvnjD0pvbqn0KzIjYYP1R0uy-b5fKBpHYsg1Ddr7tznjf0UynqnH61nWfsP1c3n7tknj0kg1czrHD3rjfLPHwxnH0zg100TgKGujYs0Z7Wpyfqn0KzuLw9u1Ys0A7B5HKxn0K-ThTqn6KsTjYs0A4vTjYsQW0snj0snj0s0AdYTjYs0AwbUL0qn0KzpWYs0Aw-IWdsmsKhIjYs0ZKC5H00ULnqn0KBI1Ykn0K8IjYs0ZPl5fK9TdqGuAnqTZnVuLG8TsKGuAnqiD4K0ZwdT1YLnHDsnjcdPW0LnHfdnWn1Pjcs0ZF-TgfqnHRLPHm1Pjn1PWnzPsK1pyfqmWTsrHKbmvmsnj0YPhcvr0KWTvYqfYm3fHcdPRDLnbmdnDm1nfK9m1Yk0ZK85H00TydY5H00Tyd15H00XMfqn0KVmdqhThqV5HKxn7tsg1Kxn0Kbmy4dmhNxTAk9Uh-bT1Ysg1Kxn7t4rHn1Pjwxn0Ksmgwxuhk9u1Ys0AwWpyfqnH0Ln1TYnH6zP0K-IA-b5iYk0A71TAPW5H00IgKGUhPW5H00Tydh5H00uhPdIjYs0A-1mvsqn0KlTAkdT1Ys0A7buhk9u1Yk0Akhm1Ys0AwWmvfq0AqW5HD0mMfqn0KEIjYs0AqzTZfqnanscznsc10WnansQW0snj0snansczns0Z7xIWYsQWbsg108njKxna3sn7tsQWndg108njuxna31nsKWThnqPHbvPjD%26word%3D%25E8%2587%25AA%25E5%258A%25A9%25E5%25BB%25BA%25E7%25AB%2599%26ck%3D5874.7.109.270.510.205.142.261%26shh%3Dwww.baidu.com%26sht%3D62095104_26_oem_dg%26us%3D3.0.1.0.1.302.0%26bc%3D110101&r=556285375&collectReferer=https%3A%2F%2Fjz.fkw.com%2Fwangzhanjianshe.jsp%3F_ta%3D178%26kw%3D121%26bd_vid%3D11513444731177441540'></script>
+
+</body>
+</html>
+
+
+
+</body>
+</html>
